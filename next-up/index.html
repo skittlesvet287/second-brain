@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Next Up</title>
+<meta name="description" content="Fast task capture, focus timer and clinic checklists for ADHD brains.">
+<meta name="theme-color" content="#F6F5F2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121416" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Next Up">
+<meta name="format-detection" content="telephone=no">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main id="main" tabindex="-1"></main>
+
+<form id="capture" class="capture" autocomplete="off">
+  <button type="button" id="cap-urgent" class="cap-urgent" data-a="cap-urgent" aria-pressed="false" aria-label="Make this task urgent">!</button>
+  <input id="cap-input" type="text" placeholder="Add a task…" enterkeyhint="done" autocapitalize="sentences" aria-label="New task">
+  <button type="submit" class="cap-add">Add</button>
+</form>
+
+<nav class="tabbar" aria-label="Sections">
+  <button class="tab" data-a="tab" data-tab="now"><svg class="tab-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="currentColor"/></svg><span>Now</span></button>
+  <button class="tab" data-a="tab" data-tab="lists"><svg class="tab-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6.5h11M9 12h11M9 17.5h11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M3.5 6.5l1.2 1.2 2-2.4M3.5 12l1.2 1.2 2-2.4M3.5 17.5l1.2 1.2 2-2.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Checklists</span></button>
+  <button class="tab" data-a="tab" data-tab="focus"><svg class="tab-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 13V8.5M12 13l3 2M9.5 2.5h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span data-live="tabfocus">Focus</span></button>
+</nav>
+
+<div id="sheet-wrap" class="sheet-wrap" hidden>
+  <div class="scrim" data-a="sheet-close"></div>
+  <div id="sheet" class="sheet" role="dialog" aria-modal="true"></div>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<input id="restore-file" type="file" accept="application/json,.json" hidden>
+
+<script src="app.js"></script>
+</body>
+</html>
